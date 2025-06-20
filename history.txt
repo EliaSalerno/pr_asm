@@ -1,0 +1,51 @@
+    1  cd ../home/
+    2  ls
+    3  mkdir pr_asm
+    4  cd pr_asm/
+    5  apt-get install git
+    6  apt install git
+    7  git
+    8  ip_address
+    9  ipaddr
+   10  ip addr
+   11  ip
+   12  iplink
+   13  apt update
+   14  apt upgrade
+   15  apt autoremove
+   16  apt install git
+   17  git
+   18  ls
+   19  git init
+   20  git config --global user.name "EliaSalerno"
+   21  git config --global user.email "salel89.do@gmail.com"
+   22  ssh-keygen
+   23  cat /root/.ssh/id_rsa.pub 
+   24  git remote add origin git@github.com:EliaSalerno/pr_asm.git
+   25  ls
+   26  touch README.md
+   27  nano README.md 
+   28  apt install nano
+   29  nano README.md 
+   30  git status
+   31  git add .
+   32  git branch
+   33  git branch -r
+   34  git branch -v
+   35  git commit -m "Master: add readme to project"
+   36  git push origin master
+   37  nano README.md 
+   38  git install nasm
+   39  git install gas
+   40  apt install nasm
+   41  apt install gcc
+   42  history
+   43  nano README.md 
+   44  git status
+   45  git add .
+   46  git status
+   47  git commmit -m "Master: update readme"
+   48  git commit -m "Master: update readme"
+   49  git push origin master
+   50  touch history.txt
+   51  history > history.txt 
