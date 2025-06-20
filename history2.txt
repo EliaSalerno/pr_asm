@@ -1,0 +1,181 @@
+    1  cd ../home/
+    2  ls
+    3  mkdir pr_asm
+    4  cd pr_asm/
+    5  apt-get install git
+    6  apt install git
+    7  git
+    8  ip_address
+    9  ipaddr
+   10  ip addr
+   11  ip
+   12  iplink
+   13  apt update
+   14  apt upgrade
+   15  apt autoremove
+   16  apt install git
+   17  git
+   18  ls
+   19  git init
+   20  git config --global user.name "EliaSalerno"
+   21  git config --global user.email "salel89.do@gmail.com"
+   22  ssh-keygen
+   23  cat /root/.ssh/id_rsa.pub 
+   24  git remote add origin git@github.com:EliaSalerno/pr_asm.git
+   25  ls
+   26  touch README.md
+   27  nano README.md 
+   28  apt install nano
+   29  nano README.md 
+   30  git status
+   31  git add .
+   32  git branch
+   33  git branch -r
+   34  git branch -v
+   35  git commit -m "Master: add readme to project"
+   36  git push origin master
+   37  nano README.md 
+   38  git install nasm
+   39  git install gas
+   40  apt install nasm
+   41  apt install gcc
+   42  history
+   43  nano README.md 
+   44  git status
+   45  git add .
+   46  git status
+   47  git commmit -m "Master: update readme"
+   48  git commit -m "Master: update readme"
+   49  git push origin master
+   50  touch history.txt
+   51  history > history.txt 
+   52  git status
+   53  git add .
+   54  git commit -m "Master: add command history"
+   55  git push origin master
+   56  nano history.txt 
+   57  git add .
+   58  git commit -m "Master: update history file"
+   59  git push origin master
+   60  touch file.c
+   61  nano file.c 
+   62  gcc
+   63  gcc --help
+   64  gcc --version
+   65  gcc file.c -o prova
+   66  ls
+   67  ls -l
+   68  ./prova 
+   69  nasm
+   70  nasm prova 
+   71  ls -l
+   72  ls -a
+   73  git status
+   74  mkdir prima_prova
+   75  mv file.c prima_prova/
+   76  mv prova prima_prova/
+   77  git status
+   78  git add .
+   79  git commit -m "Master: add first test"
+   80  git push origin master
+   81  nasm -f elf32 prova prova.asm
+   82  nasm -f elf32 prova
+   83  nasm -f elf32 file.c prova.asm
+   84  nasm -f elf32 file.c
+   85  nasm -f elf32 file.c prova.asm
+   86  nasm -f elf32 proca prova.asm
+   87  nasm -f elf32 prova prova.asm
+   88  nasm -h
+   89  ls
+   90  cd prima_prova/
+   91  ls
+   92  gcc -S file.c 
+   93  ls
+   94  cat file.
+   95  cat file.s
+   96  ls
+   97  ls -l
+   98  cd ..
+   99  git status
+  100  git add .
+  101  git commit -m "Master: add assembly file of file.c"
+  102  git push origin master
+  103  nano README.md 
+  104  git status
+  105  git add .
+  106  git commit -m "Master: update readme"
+  107  git push origin master
+  108  exit
+  109  ls
+  110  cd home/
+  111  ls
+  112  cd pr_asm/
+  113  ls
+  114  cd prima_prova/
+  115  ls
+  116  nano file.s
+  117  git status
+  118  cd ..
+  119  ls
+  120  cat README.md 
+  121  cd prima_prova/
+  122  nasm -f elf32 prova.asm
+  123  sudo
+  124  nasm -f elf prova.asm
+  125  ls
+  126  nasm -f elf32 test.asm
+  127  touch test.asm
+  128  nasm -f elf32 test.asm
+  129  cat test.asm 
+  130  ls
+  131  nano test.asm 
+  132  cat test.o
+  133  ls
+  134  ld test.o -o test
+  135  nano test.o
+  136  ls -l
+  137  ./test 
+  138  rm test
+  139  rm test.*
+  140  ls
+  141  nano file.s
+  142  touch prova.asm
+  143  nasm -f elf prova.asm 
+  144  ls
+  145  ./prova 
+  146  ls
+  147  cat prova
+  148  cat prova.o
+  149  cat prova.asm
+  150  ld prova.o -o prova1
+  151  ./prova1
+  152  ls
+  153  rm prova.asm prova.o prova1
+  154  ls
+  155  cat file.s
+  156  ls
+  157  nano file.s
+  158  nasm -f elf prova.s
+  159  nasm -f elf32 prova.s
+  160  ls
+  161  nasm
+  162  apt install gas
+  163  gas -o file.o file.s
+  164  gas
+  165  as -o file.o file.s
+  166  ls
+  167  cat file.o
+  168  ld file.o prova1
+  169  ld file.o -o prova1
+  170  ls
+  171  nano file.o
+  172  ls
+  173  ./file.o
+  174  apt install sudo
+  175  sudo ./file.o
+  176  ls
+  177  cd ..
+  178  ls
+  179  touch history2.txt
+  180  cat history > history2.txt 
+  181  history > history2.txt 
