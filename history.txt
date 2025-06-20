@@ -1,3 +1,6 @@
+comando container: -> docker pull f69m/ubuntu32:lts
+		   -> docker run -it f69m/ubuntu32:lts
+
     1  cd ../home/
     2  ls
     3  mkdir pr_asm
