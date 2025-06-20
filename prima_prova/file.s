@@ -1,16 +1,16 @@
 	.file	"file.c"
 	.section	.rodata
 .LC0:
-	.string	"Metti sto numero: "
+	.string	"Carica sto numero: "
 .LC1:
 	.string	"%d"
 .LC2:
-	.string	"\nIl tuo fantastico array di numeri: "
+	.string	"\nIl tuo dannato array: "
 .LC3:
 	.string	"%d "
 	.align 4
 .LC4:
-	.string	"\nIl tuo array invertito: "
+	.string	"\nAl contrario e' piu' bello: "
 	.text
 	.globl	main
 	.type	main, @function

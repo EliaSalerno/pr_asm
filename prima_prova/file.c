@@ -1,10 +1,3 @@
-/*
- * ArrayContrario1.c
- *
- *  Created on: 29/gen/2015
- *  Author: Fabio Biocchetti
- */
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
