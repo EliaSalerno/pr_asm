@@ -10,15 +10,19 @@ Operazioni:
  - create directory: prima_prova;
 
 ```
-### > Prima prova (history)
+<details>
+<summary>Prima prova (history)</summary>
 Ho creato un programma che inverte un vettore inserito da tastira in c, 
 poi ho compilato il c con gcc e con il medesimo compilatore ho assemblato lo stesso file. 
-
-### > Primo test (history2)
+</details>
+<details>
+<summary> Primo test (history2)</summary>
 Finito male la compilazione del file .s deve essere effettuata con gas. 
 Da questo passaggio si crea il file .o (oggetto).
-
-### > Secondo test (history3)
+</details>
+<details>
+<summary> Secondo test (history3)</summary>
 Ho scoperto che sia gas che nasm lavorano male con le librerie di c,
 problema che invece non ha gcc. Infatti lavorando solo con gcc si puo'
 tranquillamente superare il problema dettato dal c su assembly
+</details>
