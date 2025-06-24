@@ -27,8 +27,8 @@ problema che invece non ha gcc. Infatti lavorando solo con gcc si puo'
 tranquillamente superare il problema dettato dal c su assembly
 </details>
 <details>
-<summary># Compilazione piu' corretta</summary>Ã
-Per generare il file .s per l'architettura a 32bit, purtroppo non basta il comando **gcc -S file.c**;
+<summary>Compilazione piu' corretta</summary>Ã
+Per generare il file .s per l'architettura a 32bit, purtroppo non basta il comando __gcc -S file.c__;
 questo probabilmente perche' nonostante il kernel a 32 bit genera un file coerente con l'architettura
 del processore.... o piu' semplicemente il SO da me trovato si finge un 32bit ma in realta' si tratta 
 di un 64... 
