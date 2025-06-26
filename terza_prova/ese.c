@@ -22,7 +22,7 @@ void main(){
 				jne next
 				cmp AL,0
 				je next
-				mov AL, (ESI+EDX]
+				mov AL, [ESI+EDX]
 				mov AH, [EDI+EDX]
 				jmp lettereinterne
 		   next:	loop ciclo
