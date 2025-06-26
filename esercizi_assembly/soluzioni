@@ -1,0 +1,197 @@
+(1)
+section .data
+    num1 dd 5
+    num2 dd 7
+    risultato dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [num1]
+    add eax, [num2]
+    mov [risultato], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+(2)
+section .data
+    num1 dd 15
+    num2 dd 8
+    risultato dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [num1]
+    sub eax, [num2]
+    mov [risultato], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(3)
+section .data
+    num1 dd 6
+    num2 dd 7
+    risultato dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [num1]
+    imul eax, [num2]
+    mov [risultato], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(4)
+section .data
+    num1 dd 20
+    num2 dd 4
+    risultato dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [num1]
+    cdq                 ; Estende EAX in EDX:EAX
+    idiv dword [num2]
+    mov [risultato], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(5)
+section .data
+    num1 dd 8
+    num2 dd 12
+    massimo dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [num1]
+    cmp eax, [num2]
+    jge maggiore
+    mov eax, [num2]
+
+maggiore:
+    mov [massimo], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(6)
+section .data
+    N dd 5
+    somma dd 0
+
+section .text
+    global _start
+
+_start:
+    xor eax, eax       ; somma = 0
+    mov ecx, [N]
+
+somma_loop:
+    add eax, ecx
+    loop somma_loop
+
+    mov [somma], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(7)
+section .data
+    N dd 4
+    fattoriale dd 1
+
+section .text
+    global _start
+
+_start:
+    mov eax, 1
+    mov ecx, [N]
+
+fattoriale_loop:
+    imul eax, ecx
+    loop fattoriale_loop
+
+    mov [fattoriale], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(8)
+section .data
+    N dd 10
+    count dd 0
+
+section .text
+    global _start
+
+_start:
+    xor eax, eax       ; count = 0
+    mov ecx, [N]
+
+conta_pari:
+    test ecx, 1        ; controlla il bit meno significativo
+    jnz skip
+    inc eax            ; se pari, incrementa count
+skip:
+    loop conta_pari
+
+    mov [count], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(9)
+section .data
+    numero dd -15
+    risultato dd 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, [numero]
+    neg eax
+    mov [risultato], eax
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
+(10)
+section .data
+    numero dd 7
+    risultato db 0     ; 0 = pari, 1 = dispari
+
+section .text
+    global _start
+
+_start:
+    mov eax, [numero]
+    and eax, 1
+    mov [risultato], al
+
+    ; Exit
+    mov eax, 1
+    int 0x80
+
