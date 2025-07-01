@@ -67,3 +67,6 @@ main:
         ret
         .cfi_endproc
 ```
+
+Unica ma non lieve differenza che qui lo stack lo organizza nel main, libera 16 byte anche se ne bastano 12 per le variabili locali....
+Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato nella prima variabile locale....
