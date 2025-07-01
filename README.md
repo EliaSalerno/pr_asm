@@ -10,6 +10,8 @@ Operazioni:
  - create directory: prima_prova;
 
 ```
+## Fasi di test
+
 <details>
 <summary>Prima prova (history)</summary>
 Ho creato un programma che inverte un vettore inserito da tastira in c, 
