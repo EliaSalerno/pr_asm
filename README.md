@@ -37,3 +37,6 @@ di un 64...
 Comunque il comando piu' corretto e' il seguente:
 	gcc -S -masm=intel m32 nome_file.c
 </details>
+
+## Analisi lavoro
+Dopo le fasi di analisi, ho compreso un dettaglio di non poco conto. Questo dettaglio e' presente ne
