@@ -39,4 +39,31 @@ Comunque il comando piu' corretto e' il seguente:
 </details>
 
 ## Analisi lavoro
-Dopo le fasi di analisi, ho compreso un dettaglio di non poco conto. Questo dettaglio e' presente ne
+Dopo le fasi di analisi, ho compreso un dettaglio di non poco conto. Questo dettaglio e' presente nella terza prova della cartella test
+In questa prova ho creato un file.c con solo il main - la dichiarazione di 3 variabili - l'assegnazione delle prime 2 e una somma nella terza.
+Ho generato l'assembler di questo semplice codice e il risultato mi ha lasciato inizialmente basito poi, ragionandoci sopra ... sorpreso.
+La conversione ha generato un file che tratta il main come una procedura, in effetti ad inizio procedura si ha la push di ebp, il salvataggio di esp in ebp,
+e tutte le conseguenti operazioni di popolamento dello stack. 
+```
+main:
+.LFB0:
+        .cfi_startproc
+        push    ebp
+        .cfi_def_cfa_offset 8
+        .cfi_offset 5, -8
+        mov     ebp, esp
+        .cfi_def_cfa_register 5
+        sub     esp, 16
+        mov     DWORD PTR [ebp-12], 1
+        mov     DWORD PTR [ebp-8], 2
+        mov     edx, DWORD PTR [ebp-8]
+        mov     eax, DWORD PTR [ebp-12]
+        add     eax, edx
+        mov     DWORD PTR [ebp-4], eax
+        mov     eax, 0
+        leave
+        .cfi_restore 5
+        .cfi_def_cfa 4, 4
+        ret
+        .cfi_endproc
+```
