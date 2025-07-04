@@ -70,3 +70,42 @@ main:
 
 Unica ma non lieve differenza che qui lo stack lo organizza nel main, libera 16 byte anche se ne bastano 12 per le variabili locali....
 Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato nella prima variabile locale....
+<details>
+<summary>Esempio funzione</summary>
+```
+assembly
+section .data
+    #; variabili se necessario
+
+section .text
+    global _start
+
+#; Funzione per sommare due numeri
+#; Parametri:
+#;   - first number in [esp+4]
+#;   - second number in [esp+8]
+#; Restituisce la somma in eax
+add_numbers:
+    push ebp            #; salva il base pointer
+    mov ebp, esp        #; imposta il base pointer
+    mov eax, [ebp+8]    #; primo numero
+    mov ebx, [ebp+12]   #; secondo numero
+    add eax, ebx        #; somma
+    pop ebp             #; ripristina il base pointer
+    ret
+
+_start:
+    #; passo i parametri alla funzione sulla pila
+    push 20             #; secondo numero
+    push 10             #; primo numero
+    call add_numbers    #; chiama funzione
+
+    #; risultato della somma ora in eax
+    #; se vuoi terminare il programma passando il risultato come codice di uscita
+    mov ebx, eax        #; copia risultato in ebx per l'uso in exit
+    mov eax, 1          #; syscall number per exit in Linux
+    int 0x80            #; chiamata al kernel
+```
+Esempio semplice di funzione che somma due numeri
+
+</details>
