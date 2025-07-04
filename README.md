@@ -109,3 +109,61 @@ _start:
 Esempio semplice di funzione che somma due numeri
 
 </details>
+<details>
+<summary>Print su linux ... in assembly (senza c)</summary>
+```
+assembly
+section .data
+    message db 'Ciao, è una stampa in Assembly!', 0xA
+    msg_len equ $ - message
+
+section .text
+    global _start
+
+_start:
+    #; scrivere il messaggio
+    mov eax, 4          #; syscall per sys_write
+    mov ebx, 1          #; file descriptor 1 = stdout
+    mov ecx, message    #; indirizzo del messaggio
+    mov edx, msg_len    #; lunghezza del messaggio
+    int 0x80            #; chiamata al kernel
+
+    #; terminare il programma
+    mov eax, 1          #; syscall per sys_exit
+    xor ebx, ebx        #; codice di uscita 0
+    int 0x80
+```
+
+</details>
+<details>
+<summary>Print su windows ... in assembly (senza c)</summary>
+```
+assembly
+#; stampa.asm
+#; Assembla con: nasm -f win32 stampa.asm
+#; Linka con: link /SUBSYSTEM:WINDOWS stampa.obj
+
+extern _MessageBoxA@16 #; Importa la funzione MessageBoxA da user32.dll
+extern _ExitProcess@4  #; Importa la funzione ExitProcess da kernel32.dll
+
+section .data
+    titolo db "Saluto", 0  #; Titolo della finestra di messaggio
+    messaggio db "Ciao, mondo!", 0 #; Messaggio da visualizzare
+
+section .text
+    global _main  #; Etichetta punto di ingresso per il linker
+
+_main:
+    #; Chiama MessageBoxA per visualizzare il messaggio
+    push dword 0      #; uType = MB_OK (nessun bottone speciale)
+    push dword messaggio #; lpText = Indirizzo del messaggio
+    push dword titolo   #; lpCaption = Indirizzo del titolo
+    push dword 0      #; hWnd = NULL (nessuna finestra padre)
+    call _MessageBoxA@16 #; Chiama la funzione MessageBoxA
+
+    #; Chiama ExitProcess per terminare il programma
+    push dword 0      #; uExitCode = 0 (uscita senza errori)
+    call _ExitProcess@4  #; Chiama la funzione ExitProcess
+```
+
+</details>
