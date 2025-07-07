@@ -44,7 +44,7 @@ In questa prova ho creato un file.c con solo il main - la dichiarazione di 3 var
 Ho generato l'assembler di questo semplice codice e il risultato mi ha lasciato inizialmente basito poi, ragionandoci sopra ... sorpreso.
 La conversione ha generato un file che tratta il main come una procedura, in effetti ad inizio procedura si ha la push di ebp, il salvataggio di esp in ebp,
 e tutte le conseguenti operazioni di popolamento dello stack. 
-```
+
 main:
 .LFB0:
         .cfi_startproc
@@ -66,13 +66,13 @@ main:
         .cfi_def_cfa 4, 4
         ret
         .cfi_endproc
-```
+
 
 Unica ma non lieve differenza che qui lo stack lo organizza nel main, libera 16 byte anche se ne bastano 12 per le variabili locali....
 Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato nella prima variabile locale....
 <details>
 <summary>Esempio funzione</summary>
-```
+
 assembly
 section .data
     #; variabili se necessario
@@ -105,13 +105,13 @@ _start:
     mov ebx, eax        #; copia risultato in ebx per l'uso in exit
     mov eax, 1          #; syscall number per exit in Linux
     int 0x80            #; chiamata al kernel
-```
+
 Esempio semplice di funzione che somma due numeri
 
 </details>
 <details>
 <summary>Print su linux ... in assembly (senza c)</summary>
-```
+
 assembly
 section .data
     message db 'Ciao, è una stampa in Assembly!', 0xA
@@ -132,12 +132,11 @@ _start:
     mov eax, 1          #; syscall per sys_exit
     xor ebx, ebx        #; codice di uscita 0
     int 0x80
-```
 
 </details>
 <details>
 <summary>Print su windows ... in assembly (senza c)</summary>
-```
+
 assembly
 #; stampa.asm
 #; Assembla con: nasm -f win32 stampa.asm
@@ -164,6 +163,6 @@ _main:
     #; Chiama ExitProcess per terminare il programma
     push dword 0      #; uExitCode = 0 (uscita senza errori)
     call _ExitProcess@4  #; Chiama la funzione ExitProcess
-```
+
 
 </details>
