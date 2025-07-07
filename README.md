@@ -73,7 +73,6 @@ Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato
 
 Esempio funzione
 ```
-assembly
 section .data
     #; variabili se necessario
 
@@ -110,7 +109,6 @@ Esempio semplice di funzione che somma due numeri
 
 Print su linux ... in assembly (senza c)
 ```
-assembly
 section .data
     message db 'Ciao, è una stampa in Assembly!', 0xA
     msg_len equ $ - message
@@ -133,7 +131,6 @@ _start:
 ```
 Print su windows ... in assembly (senza c)
 ```
-assembly
 #; stampa.asm
 #; Assembla con: nasm -f win32 stampa.asm
 #; Linka con: link /SUBSYSTEM:WINDOWS stampa.obj
