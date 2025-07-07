@@ -70,8 +70,8 @@ main:
 
 Unica ma non lieve differenza che qui lo stack lo organizza nel main, libera 16 byte anche se ne bastano 12 per le variabili locali....
 Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato nella prima variabile locale....
-<details>
-<summary>Esempio funzione</summary>
+
+Esempio funzione
 
 assembly
 section .data
@@ -102,15 +102,13 @@ _start:
 
     #; risultato della somma ora in eax
     #; se vuoi terminare il programma passando il risultato come codice di uscita
-    mov ebx, eax        #; copia risultato in ebx per l'uso in exit
+    mov ebx, eax        #; copia risultato in ebx per l'uso di eax in exit
     mov eax, 1          #; syscall number per exit in Linux
     int 0x80            #; chiamata al kernel
 
 Esempio semplice di funzione che somma due numeri
 
-</details>
-<details>
-<summary>Print su linux ... in assembly (senza c)</summary>
+Print su linux ... in assembly (senza c)
 
 assembly
 section .data
@@ -133,9 +131,7 @@ _start:
     xor ebx, ebx        #; codice di uscita 0
     int 0x80
 
-</details>
-<details>
-<summary>Print su windows ... in assembly (senza c)</summary>
+Print su windows ... in assembly (senza c)
 
 assembly
 #; stampa.asm
@@ -164,5 +160,3 @@ _main:
     push dword 0      #; uExitCode = 0 (uscita senza errori)
     call _ExitProcess@4  #; Chiama la funzione ExitProcess
 
-
-</details>
