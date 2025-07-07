@@ -72,7 +72,7 @@ Unica ma non lieve differenza che qui lo stack lo organizza nel main, libera 16 
 Azzera eax perche' in effetti non e' una vera procedura.... e salva il risultato nella prima variabile locale....
 
 Esempio funzione
-
+```
 assembly
 section .data
     #; variabili se necessario
@@ -105,11 +105,11 @@ _start:
     mov ebx, eax        #; copia risultato in ebx per l'uso di eax in exit
     mov eax, 1          #; syscall number per exit in Linux
     int 0x80            #; chiamata al kernel
-
+```
 Esempio semplice di funzione che somma due numeri
 
 Print su linux ... in assembly (senza c)
-
+```
 assembly
 section .data
     message db 'Ciao, è una stampa in Assembly!', 0xA
@@ -130,9 +130,9 @@ _start:
     mov eax, 1          #; syscall per sys_exit
     xor ebx, ebx        #; codice di uscita 0
     int 0x80
-
+```
 Print su windows ... in assembly (senza c)
-
+```
 assembly
 #; stampa.asm
 #; Assembla con: nasm -f win32 stampa.asm
@@ -159,4 +159,4 @@ _main:
     #; Chiama ExitProcess per terminare il programma
     push dword 0      #; uExitCode = 0 (uscita senza errori)
     call _ExitProcess@4  #; Chiama la funzione ExitProcess
-
+```
