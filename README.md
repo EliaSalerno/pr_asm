@@ -157,3 +157,6 @@ _main:
     push dword 0      #; uExitCode = 0 (uscita senza errori)
     call _ExitProcess@4  #; Chiama la funzione ExitProcess
 ```
+
+### Comandi utili per lavorare in git passando dal c
+
