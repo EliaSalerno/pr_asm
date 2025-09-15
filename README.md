@@ -10,6 +10,11 @@ Operazioni:
  - create directory: prima_prova;
 
 ```
+### Comandi utili per docker
+```
+	docker build -t nome_immagine .
+	# nella medesima cartella del dockerfile
+```
 ## Fasi di test
 
 <details>
@@ -35,7 +40,7 @@ questo probabilmente perche' nonostante il kernel a 32 bit genera un file coeren
 del processore.... o piu' semplicemente il SO da me trovato si finge un 32bit ma in realta' si tratta 
 di un 64... 
 Comunque il comando piu' corretto e' il seguente:
-	gcc -S -masm=intel m32 nome_file.c
+	gcc -S -masm=intel -m32 nome_file.c
 </details>
 
 ## Analisi lavoro
