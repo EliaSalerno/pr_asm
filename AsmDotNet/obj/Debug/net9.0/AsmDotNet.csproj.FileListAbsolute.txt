@@ -1,0 +1,14 @@
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.AssemblyInfoInputs.cache
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.AssemblyInfo.cs
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.csproj.CoreCompileInputs.cache
+C:\Users\elias\source\repos\AsmDotNet\bin\Debug\net9.0\AsmDotNet.exe
+C:\Users\elias\source\repos\AsmDotNet\bin\Debug\net9.0\AsmDotNet.deps.json
+C:\Users\elias\source\repos\AsmDotNet\bin\Debug\net9.0\AsmDotNet.runtimeconfig.json
+C:\Users\elias\source\repos\AsmDotNet\bin\Debug\net9.0\AsmDotNet.dll
+C:\Users\elias\source\repos\AsmDotNet\bin\Debug\net9.0\AsmDotNet.pdb
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.dll
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\refint\AsmDotNet.dll
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.pdb
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\AsmDotNet.genruntimeconfig.cache
+C:\Users\elias\source\repos\AsmDotNet\obj\Debug\net9.0\ref\AsmDotNet.dll

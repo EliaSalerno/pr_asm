@@ -1,0 +1,3 @@
+LIBRARY AsmFunctions
+EXPORTS
+    AddNumbers=_AddNumbers@8
