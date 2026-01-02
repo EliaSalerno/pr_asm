@@ -169,3 +169,13 @@ _main:
     gcc -c -masm=intel -m32 file.c --> converte in formato asm intel il c
     gcc -o file file.s
 ```
+
+## Gli ultimi aggiornamenti del repo
+
+Negli ultimi aggiornamenti ho introdotto l'uso di dotnet di windows per la gestione di un asm prima sotto c e poi sotto c#.
+Risulta essere più comodo per lo storico dei ragazzi dato il contributo offerto dalle ore di informatica. 
+In breve creo un progetto c# in una directory dedicata. Nella cartella di progetto gestisco il file csproj in modo da forzare dotnet su un sistema a 32 bit, 
+successivamente genero un file asm in cui immetto una funzione che verrà poi chiamata nel Program.cs. 
+Dobbiamo generare un dll nativo senza entrypoint (DllMain), per questo motivo andrà gestito nella generazione del dll inserendo l'opzione "/noentry";
+inoltre il dll gestito da stdcall (che sarebbe la convenzione che usiamo noi), viene esposto con un nome "particolare", per ovviare a questo problema 
+dobbiamo creare un .def che definisca il nuovo nome da esportare. dotnet build - copiamo il dll nel bin\debug\net8.0-9.0 - dotnet run e il gioco è fatto. 
