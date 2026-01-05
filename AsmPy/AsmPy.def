@@ -1,0 +1,3 @@
+LIBRARY AsmPy
+EXPORTS
+     somma=_somma@8
