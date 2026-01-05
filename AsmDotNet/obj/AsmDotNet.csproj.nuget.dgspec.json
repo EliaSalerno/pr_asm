@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elias\\source\\repos\\AsmDotNet\\AsmDotNet.csproj": {}
+    "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\AsmDotNet\\AsmDotNet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elias\\source\\repos\\AsmDotNet\\AsmDotNet.csproj": {
+    "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\AsmDotNet\\AsmDotNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elias\\source\\repos\\AsmDotNet\\AsmDotNet.csproj",
+        "projectUniqueName": "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\AsmDotNet\\AsmDotNet.csproj",
         "projectName": "AsmDotNet",
-        "projectPath": "C:\\Users\\elias\\source\\repos\\AsmDotNet\\AsmDotNet.csproj",
+        "projectPath": "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\AsmDotNet\\AsmDotNet.csproj",
         "packagesPath": "C:\\Users\\elias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elias\\source\\repos\\AsmDotNet\\obj\\",
+        "outputPath": "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\AsmDotNet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

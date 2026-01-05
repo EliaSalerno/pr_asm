@@ -179,3 +179,135 @@ successivamente genero un file asm in cui immetto una funzione che verrà poi ch
 Dobbiamo generare un dll nativo senza entrypoint (DllMain), per questo motivo andrà gestito nella generazione del dll inserendo l'opzione "/noentry";
 inoltre il dll gestito da stdcall (che sarebbe la convenzione che usiamo noi), viene esposto con un nome "particolare", per ovviare a questo problema 
 dobbiamo creare un .def che definisca il nuovo nome da esportare. dotnet build - copiamo il dll nel bin\debug\net8.0-9.0 - dotnet run e il gioco è fatto. 
+
+# Ebbene conviene scrivere tutto
+
+## Assembly in dll da dotnet
+
+### Primo passo realizzare la directori del progetto
+
+Consiglio di lavorare da "Developer Powershell for VS", che credo si installi insieme a visual studio
+```
+mkdir AsmDotNet (oppure md da prompt o powershell)
+cd AsmDotNet
+dotnet new console
+```
+
+Per aprire i nostri file utilizziamo il seguente comando:
+
+```
+notepad Nomefile.asm
+```
+
+Una volta creata la directory e aver creato un nuovo progetto di .net in csharp, bisogna forzare dotnet a ragionare in x86 cioè nel nostro caso in 32 bit.<br>
+Per ottenere ciò bisogna cambiare il contenuto del file di progetto.
+
+Nuovo contenuto
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>  // da notare la versione, questo perchè in 9.0 ho avuto dei problemi risolti passando alla versione 8.0
+    <PlatformTarget>x86</PlatformTarget>  //da notare sia i tag in cui abbiamo scritto x86
+  </PropertyGroup>
+
+</Project>
+
+```
+Una volta corretto il contenuto del file di progetto possiamo procedere alla creazione di file in assembly-> estensione .asm
+
+contenuto: 
+
+```
+.386
+.model flat, stdcall
+option casemap:none
+
+PUBLIC AddNumbers
+
+.code
+AddNumbers PROC a:DWORD, b:DWORD
+     mov eax, a
+     add eax, b
+     ret 8
+AddNumbers ENDP
+END
+```
+
+Procediamo ora al file .def, perchè dobbiamo definire il modo in cui assembler deve esporre la funzione, cioè con quale nome. Difatti la <br>
+stdcall è una calling convention ed ha delle regole di configurazione delle chiamate di funzione, una tra queste (che spesso rappresenta il primo <br>
+scoglio da superare), è quella che definisce il naming della funzione esposta, o meglio quando si usa la convenzione stdcall succede che il nome <br>
+della funzione viene preceduto da un "_", mentre alla fine si mette "@" con il numero di byte occupato dai parametri passati. <br>
+Nel nostro esempio sopra esposto abbiamo 2 variabili di tipo dword (ogni variabile così pesa 4 byte). <br>
+Perciò somma diventa _somma@8; questo nuovo nome diventa così problematico da gestire e per risolverlo si può agire in due modi:
+
+1. Modo pulito: facciamo in modo che il program.cs quando eseguito riesca a reperire la funzione corretta chiamandola in modo ordinario, e per <br>
+ottenere questo permettiamo all'assembler di esporlo del suo modo ma poi interferiamo con una nuova definizione della funzione sostituendo <br>
+con quello più comodo per noi:<br>
+contenuto file .def
+
+```
+LIBRARY nome_file_asm
+EXPORTS
+     nomefunzione=_nomefunzione@n // dove n è il numero di byte dei parametri
+```
+
+2. Modo meno pulito: ridefiniamo il comportamento del program.cs nella parte dedicata al recupero delle informazioni dal file dll. <br>
+Ma questo modo ha un grosso limite: questa modalità dipende fortemente dal numero di parametri da passare. Per tale motivo, ho deciso <br>
+di non approfondire questa modalità
+
+Una volta completata questa fase bisogna passare alla fase di compilazione dell'assembly per la generazione del file .obj.<br>
+Comandi utili:
+
+```
+ml /c /coff Nome_file.asm
+```
+e poi al linker per la generazione del dll (il vero file da cui reperire la funzione dal csharp)
+
+```
+link /dll /noentry /machine:x86 /def:nome_file.def /out:Nomefile.dll Nomefile.obj
+
+// da notare l'uso dell'opzione noentry, il dll non ha entrypoint rappresentato di solito dal dllmain, per questo bisogna utilizzarla
+// da notare il comando machine:x86 senza questo si rischia di lavorare sull'architettura reale della macchina. 
+```
+
+Se non da problemi possiamo procedere al file Program.cs:
+
+```
+using System;
+using System.Runtime.InteropServices;
+
+class Program
+{
+	[DllImport("Nomefile.dll",CallingConvention=CallingConvention.StdCall)]
+	public static extern tipo_funzione nomefunzione( parametri utili);
+	
+	static void Main()
+	{
+		Console.WriteLine(nomefunzione(parametri utili));
+	}
+}
+```
+
+In questo modo semplice creiamo un esempio di collaborazione tra assembly e csharp. <br>
+Una volta completato questa operazione possiamo procedere alla fase successiva.
+
+```
+dotnet build
+```
+
+Se l'operazione non da problemi...
+
+```
+copy nomefile.dll \bin\Debug\net8.0
+```
+
+poi 
+
+```
+dotnet run
+```
+
+Se non ci sono problemi il risultato è la somma dei due valori inseriti nel program.cs, tra i parametri passati.
