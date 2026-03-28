@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corso Assembly x86 — Terza Informatica</title>
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Piattaforma interattiva per il corso di Assembly x86. Lezioni teoriche, esercizi pratici in MASM e test di verifica.">
+    <meta name="author" content="Elias Salerno">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2338bdf8'></rect></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Prismjs for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-nasm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-batch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-csharp.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <aside>
+            <div class="logo">
+                <div class="logo-icon">01</div>
+                <span>Assembly.x86</span>
+            </div>
+
+            <nav id="sidebar-nav">
+                <!-- Section: General -->
+                <div class="nav-section">
+                    <label class="nav-label">General</label>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" id="nav-home" onclick="loadContent('home')">
+                                <span class="icon">🏠</span> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="nav-overview" onclick="loadContent('teoria_overview')">
+                                <span class="icon">📖</span> Guida Generale
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Section: Teoria -->
+                <div class="nav-section">
+                    <label class="nav-label">Teoria</label>
+                    <ul id="nav-teoria" class="nav-list">
+                        <!-- Dynamic -->
+                    </ul>
+                </div>
+
+                <!-- Section: Pratica -->
+                <div class="nav-section">
+                    <label class="nav-label">Pratica</label>
+                    <ul id="nav-pratica" class="nav-list">
+                        <!-- Dynamic -->
+                    </ul>
+                </div>
+
+
+            </nav>
+        </aside>
+
+        <main>
+            <div id="content-area">
+                <!-- Landing Page Content -->
+                <section id="home-view" class="hero">
+                    <span class="badge">A.S. 2025/2026 — Terza Informatica</span>
+                    <h1>Benvenuti al Corso di<br><span style="color: var(--accent);">Assembly x86</span></h1>
+                    <p style="font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto;">
+                        Esplora l'architettura dei calcolatori, impara il linguaggio della CPU e
+                        comunica direttamente con l'hardware attraverso MASM e C#.
+                    </p>
+
+                    <div class="grid">
+                        <div class="card" onclick="loadContent('teoria_lezione01_architettura')">
+                            <span class="card-icon">📚</span>
+                            <h3>Lezioni Teoriche</h3>
+                            <p>Dall'architettura di von Neumann alla Calling Convention. 8 moduli completi.</p>
+                        </div>
+                        <div class="card" onclick="loadContent('pratica_es_somma')">
+                            <span class="card-icon">⚡</span>
+                            <h3>Laboratorio</h3>
+                            <p>Esercizi pratici: somme, cicli, array e stringhe compilate come DLL.</p>
+                        </div>
+                        <div class="card" onclick="loadContent('teoria_overview')">
+                            <span class="card-icon">📖</span>
+                            <h3>Guida al Corso</h3>
+                            <p>Tutte le istruzioni, i requisiti e il flusso di lavoro completo.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Markdown Content Runner -->
+                <section id="markdown-view" style="display: none;" class="markdown-body">
+                    <button class="nav-link" style="margin-bottom: 2rem; border: none; background: transparent;"
+                        onclick="loadContent('home')">← Torna alla Dashboard</button>
+                    <div id="markdown-content"></div>
+                </section>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Data File containing all MD content -->
+    <script src="js/content.js"></script>
+    <!-- Logic File -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

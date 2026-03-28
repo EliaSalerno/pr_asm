@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- CRITICO: Deve essere x86 per comunicare con DLL Assembly a 32 bit -->
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+</Project>

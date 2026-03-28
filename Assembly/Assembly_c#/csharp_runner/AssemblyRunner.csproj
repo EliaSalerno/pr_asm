@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- IMPORTANTE: le DLL assembly sono a 32-bit, quindi anche il runner deve esserlo -->
+    <PlatformTarget>x86</PlatformTarget>
+    <AssemblyName>AssemblyRunner</AssemblyName>
+    <RootNamespace>AssemblyRunner</RootNamespace>
+  </PropertyGroup>
+
+</Project>
