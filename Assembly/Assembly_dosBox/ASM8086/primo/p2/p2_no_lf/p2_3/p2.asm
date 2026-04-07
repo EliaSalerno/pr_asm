@@ -3,8 +3,8 @@ DOSSEG
 .STACK 100h
 
 .DATA
-   msg DB 13,10,'Hello,','$'
-   msg1 DB 'world!$'
+   msg DB 'Hello, ', 10, '$'
+   msg1 DB 'B$'
 
 .CODE
 MAIN PROC
@@ -19,7 +19,7 @@ MAIN PROC
    MOV AH, 09h
    INT 21h
 
-   MOV AX, 4Ch
+   MOV AX, 4C00h
    INT 21h
 MAIN ENDP
 END MAIN
