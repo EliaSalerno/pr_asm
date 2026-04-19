@@ -1,0 +1,8 @@
+DOSSEG
+ .MODEL SMALL
+ .STACK 100h
+
+.DATA
+ n1 DW 1234h
+ n2 DW 5678h
+
