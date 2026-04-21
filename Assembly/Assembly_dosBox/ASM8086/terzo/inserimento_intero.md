@@ -63,5 +63,3 @@ Se l'utente inserisce "123":
 - **Terzo ciclo**:
   - Carattere '3' → ASCII 51 → 3 in `bx`, `AX` = 12
   - Moltiplica `AX` per 10 → `AX` = 
-Questo messaggio è stato generato da Nova - Scarica gratis:
-https://novaapp.onelink.me/PBYt/cyi2tjkv
