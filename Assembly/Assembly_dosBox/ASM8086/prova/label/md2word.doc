@@ -1,0 +1,329 @@
+﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11pt;
+    line-height: 1.3;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+h1 { font-size: 16pt; font-weight: 700; color: #000000; margin: 12pt 0 4pt 0; line-height: 1.15; }
+h2 { font-size: 13pt; font-weight: 600; color: #000000; margin: 12pt 0 4pt 0; line-height: 1.15; }
+h3 { font-size: 12pt; font-weight: 600; color: #333333; margin: 12pt 0 4pt 0; line-height: 1.15; }
+h4 { font-size: 11pt; font-weight: 600; color: #333333; margin: 8pt 0 4pt 0; }
+h5 { font-size: 11pt; font-weight: 600; color: #666666; margin: 8pt 0 4pt 0; }
+h6 { font-size: 11pt; font-weight: 600; color: #666666; margin: 8pt 0 4pt 0; }
+p { margin: 0 0 8pt 0; line-height: 1.45; }
+a { color: #0563C1; text-decoration: underline; }
+
+ul { list-style-type: disc; padding-left: 36pt; margin: 4pt 0; }
+ol { list-style-type: decimal; padding-left: 36pt; margin: 4pt 0; }
+li { margin-bottom: 2pt; line-height: 1.3; }
+ul ul { list-style-type: circle; }
+ul ul ul { list-style-type: square; }
+
+code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background-color: #f5f5f5;
+    padding: 1pt 4pt;
+    border: 1px solid #e0e0e0;
+}
+pre {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    background-color: #f5f5f5;
+    padding: 10pt;
+    border: 1px solid #e0e0e0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 8pt 0;
+}
+pre code { background: none; border: none; padding: 0; }
+
+blockquote {
+    border-left: 3pt solid #cccccc;
+    padding: 8pt 12pt;
+    margin: 8pt 0;
+    font-style: italic;
+    color: #595959;
+    background-color: #f8f9fa;
+}
+
+table { border-collapse: collapse; width: 100%; margin: 8pt 0; border: 1px solid #cccccc; }
+th {
+    background-color: #f0f0f0;
+    color: #333333;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #cccccc;
+}
+td { padding: 8px 12px; border: 1px solid #cccccc; }
+
+hr { border: none; border-top: 1px solid #bfbfbf; margin: 12pt 0; }
+img { max-width: 100%; height: auto; }
+.katex-inline-image { vertical-align: -0.08em; }
+.katex-block-image { display: block; margin: 8pt auto; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+del { text-decoration: line-through; }
+mark { background-color: #FFFF00; }
+</style>
+</head>
+<body>
+<h1 id="analisi-dettagliata-del-debugexe-8086-16-bit">Analisi dettagliata del DEBUG.EXE (8086, 16 bit)</h1>
+<hr>
+<h2 id="parte-1-i-flag-dell8086">PARTE 1: I Flag dell'8086</h2>
+<p>Il registro <strong>FLAGS</strong> è un registro a 16 bit dove ogni bit rappresenta uno stato. DEBUG li mostra tutti insieme come stringa di sigle.</p>
+<pre><code>Bit:  15  14  13  12  11  10   9   8   7   6   5   4   3   2   1   0
+       —   —   —   —  OF  DF  IF  TF  SF  ZF   —  AF   —  PF   —  CF
+</code></pre>
+<hr>
+<h3 id="cf--carry-flag-→-nc--cy">CF – Carry Flag → <code>nc</code> / <code>cy</code></h3>
+<p>Viene alzato quando una somma o sottrazione <strong>supera la capacità del registro</strong>.</p>
+<pre><code class="language-asm">MOV AL, 0FFh
+ADD AL, 01h      ; FFh + 01h = 100h, non entra in 8 bit
+                 ; → CF = 1 → DEBUG mostra "cy"
+</code></pre>
+<p>Nella sottrazione si alza quando si "prende in prestito" dal bit superiore (borrow).<br>Usato anche per operazioni a 64+ bit concatenate con <code>ADC</code>/<code>SBB</code>.</p>
+<hr>
+<h3 id="pf--parity-flag-→-po--pe">PF – Parity Flag → <code>po</code> / <code>pe</code></h3>
+<p>Conta i bit a <strong>1 nel byte meno significativo</strong> del risultato:</p>
+<ul>
+<li><strong>pe</strong> (Parity Even) → numero <strong>pari</strong> di bit a 1</li>
+<li><strong>po</strong> (Parity Odd) → numero <strong>dispari</strong> di bit a 1</li>
+</ul>
+<pre><code>Risultato = 07h = 0000 0111b  → tre bit a 1 → dispari → "po"
+Risultato = 03h = 0000 0011b  → due  bit a 1 → pari   → "pe"
+</code></pre>
+<p>Oggi quasi inutilizzato, ma storicamente serviva per il <strong>controllo di parità</strong> nelle comunicazioni seriali.</p>
+<hr>
+<h3 id="af--auxiliary-carry-flag-→-na--ac">AF – Auxiliary Carry Flag → <code>na</code> / <code>ac</code></h3>
+<p>Carry dal <strong>bit 3 al bit 4</strong>, cioè dalla cifra esadecimale bassa a quella alta.<br>Serve esclusivamente per le istruzioni <strong>BCD</strong> (Binary Coded Decimal): <code>DAA</code>, <code>DAS</code>, <code>AAA</code>, <code>AAS</code>.</p>
+<pre><code>  09h = 0000 1001b
++ 01h = 0000 0001b
+──────────────────
+  10h = 0001 0000b   ← carry dal nibble basso → AF = 1 → "ac"
+</code></pre>
+<hr>
+<h3 id="zf--zero-flag-→-nz--zr">ZF – Zero Flag → <code>nz</code> / <code>zr</code></h3>
+<p>Alzato quando il risultato di un'operazione è <strong>esattamente zero</strong>.</p>
+<pre><code class="language-asm">MOV AL, 05h
+SUB AL, 05h      ; risultato = 0 → ZF = 1 → "zr"
+
+CMP AL, 03h      ; 0 - 3 ≠ 0   → ZF = 0 → "nz"
+</code></pre>
+<p>Fondamentale nei salti condizionali: <code>JZ</code> (salta se zr), <code>JNZ</code> (salta se nz).</p>
+<hr>
+<h3 id="sf--sign-flag-→-pl--ng">SF – Sign Flag → <code>pl</code> / <code>ng</code></h3>
+<p>Riflette il <strong>bit più significativo</strong> del risultato (bit 7 per byte, bit 15 per word).<br>In aritmetica con segno, quel bit indica il segno.</p>
+<pre><code class="language-asm">MOV AL, 7Fh
+ADD AL, 01h      ; 7Fh + 01h = 80h = 1000 0000b
+                 ; bit 7 = 1 → SF = 1 → "ng" (negativo)
+
+MOV AL, 01h
+ADD AL, 01h      ; risultato = 02h, bit 7 = 0 → "pl" (positivo)
+</code></pre>
+<hr>
+<h3 id="tf--trap-flag-non-mostrato-direttamente">TF – Trap Flag (non mostrato direttamente)</h3>
+<p>Mette il processore in modalità <strong>single-step</strong>: esegue una sola istruzione poi genera un interrupt (INT 1).<br>È proprio quello che usa DEBUG.EXE quando premi <code>T</code> (Trace)!<br>Non ha una sigla nella stringa perché DEBUG lo gestisce internamente.</p>
+<hr>
+<h3 id="if--interrupt-flag-→-di--ei">IF – Interrupt Flag → <code>di</code> / <code>ei</code></h3>
+<ul>
+<li><strong>ei</strong> (Enable Interrupts) → il processore risponde agli interrupt hardware (tastiera, timer, ecc.)</li>
+<li><strong>di</strong> (Disable Interrupts) → interrupt mascherati</li>
+</ul>
+<pre><code class="language-asm">CLI   ; Clear Interrupt → "di"  (usato in sezioni critiche)
+STI   ; Set Interrupt   → "ei"  (ripristino normale)
+</code></pre>
+<p>In un programma DOS normale vedrai sempre <strong>ei</strong>, perché DOS ha bisogno degli interrupt per funzionare.</p>
+<hr>
+<h3 id="df--direction-flag-→-up--dn">DF – Direction Flag → <code>up</code> / <code>dn</code></h3>
+<p>Controlla la <strong>direzione</strong> delle istruzioni stringa (<code>MOVSB</code>, <code>LODSB</code>, <code>STOSB</code>, ecc.):</p>
+<ul>
+<li><strong>up</strong> → SI/DI vengono <strong>incrementati</strong> dopo ogni operazione</li>
+<li><strong>dn</strong> → SI/DI vengono <strong>decrementati</strong></li>
+</ul>
+<pre><code class="language-asm">CLD   ; Clear Direction → "up"  (da indirizzo basso ad alto)
+STD   ; Set Direction   → "dn"  (da indirizzo alto a basso)
+</code></pre>
+<hr>
+<h3 id="of--overflow-flag-→-nv--ov">OF – Overflow Flag → <code>nv</code> / <code>ov</code></h3>
+<p>Alzato quando il risultato di un'operazione <strong>con segno</strong> è fuori range.<br>Diverso dal Carry, che è per operazioni <strong>senza segno</strong>.</p>
+<pre><code>Signed byte: da -128 a +127
+
+  MOV AL, 7Fh    ; +127
+  ADD AL, 01h    ; +127 + 1 = +128, ma +128 non esiste in signed byte!
+                 ; OF = 1 → "ov"
+                 ; CF = 0 → "nc"  (nessun carry unsigned)
+</code></pre>
+<p>La differenza tra CF e OF è fondamentale:</p>
+<table>
+<thead>
+<tr>
+<th>Situazione</th>
+<th>CF</th>
+<th>OF</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FFh + 01h</code> (255+1 unsigned)</td>
+<td>cy</td>
+<td>nv</td>
+</tr>
+<tr>
+<td><code>7Fh + 01h</code> (+127+1 signed)</td>
+<td>nc</td>
+<td>ov</td>
+</tr>
+<tr>
+<td><code>FFh + 01h</code> visto come signed (-1+1=0)</td>
+<td>cy</td>
+<td>nv</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="parte-2-la-riga-di-disassembly">PARTE 2: La riga di disassembly</h2>
+<pre><code>076A:0010   B8 6D 07
+</code></pre>
+<h3 id="il-formato-completo-in-debug">Il formato completo in DEBUG</h3>
+<p>Quando usi il comando <code>U</code> (Unassemble) o esegui con <code>T</code> (Trace), DEBUG mostra:</p>
+<pre><code>SSSS:OOOO   XX XX XX   MNEMONICO OPERANDI
+  ↑    ↑      ↑              ↑
+  CS   IP   byte grezzi   istruzione decodificata
+</code></pre>
+<hr>
+<h3 id="076a--il-segmento-cs"><code>076A</code> – Il segmento CS</h3>
+<p>L'8086 usa la <strong>segmentazione della memoria</strong>. L'indirizzo fisico si calcola così:</p>
+<pre><code>Indirizzo fisico = Segmento × 10h + Offset
+
+076A × 10h = 07A60h  (shift di 4 bit a sinistra)
++ 0010h
+─────────
+= 07A70h             ← indirizzo fisico in RAM
+</code></pre>
+<p>Il valore <code>076A</code> dipende da <strong>dove DOS ha caricato il tuo programma</strong> in memoria.<br>Ogni esecuzione potrebbe darti un valore diverso (ma in DOSBox tende a essere costante).</p>
+<hr>
+<h3 id="0010--loffset-ip"><code>0010</code> – L'offset IP</h3>
+<p><strong>IP (Instruction Pointer)</strong> punta alla <strong>prossima istruzione da eseguire</strong>.<br>Vale <code>0010h</code> perché prima del codice vero c'è il <strong>PSP (Program Segment Prefix)</strong>: un'intestazione di 256 byte (100h) che DOS prepone ad ogni <code>.COM</code>, ma per i <code>.EXE</code> il CS parte già dopo il PSP, quindi IP parte da <code>0000h</code> e <code>0010h</code> indica che ci sono già alcune istruzioni prima.</p>
+<hr>
+<h3 id="b8-6d-07--i-byte-grezzi-opcode"><code>B8 6D 07</code> – I byte grezzi (opcode)</h3>
+<p>In memoria trovi letteralmente questi tre byte:</p>
+<pre><code>B8        → opcode di  MOV AX, imm16
+6D 07     → valore immediato a 16 bit in little-endian
+</code></pre>
+<p><strong>Little-endian</strong> significa che il byte meno significativo viene prima:</p>
+<pre><code>6D 07  →  byte basso = 6Dh, byte alto = 07h
+       →  valore = 076Dh
+</code></pre>
+<p>Quindi l'istruzione completa è:</p>
+<pre><code class="language-asm">MOV AX, 076Dh
+</code></pre>
+<p>Che nel sorgente era scritto come:</p>
+<pre><code class="language-asm">MOV AX, @DATA
+</code></pre>
+<p><code>@DATA</code> è una <strong>direttiva MASM</strong> risolta a compile-time con l'indirizzo del segmento dati.<br>MASM ha calcolato che <code>.DATA</code> finirà all'indirizzo <code>076Dh</code> e ha sostituito <code>@DATA</code> con quel valore nei byte dell'eseguibile.</p>
+<hr>
+<h3 id="perché-076dh-e-non-076ah">Perché <code>076Dh</code> e non <code>076Ah</code>?</h3>
+<p>CS = <code>076Ah</code> mentre @DATA = <code>076Dh</code> perché i segmenti sono <strong>separati e adiacenti</strong> in memoria:</p>
+<pre><code>Memoria (indirizzi fisici):
+┌─────────────────┐
+│   PSP (256B)    │  ← DOS lo crea automaticamente
+├─────────────────┤ ← 076Ah × 10h = 07A60h
+│   .CODE         │  ← CS = 076Ah
+│   (istruzioni)  │
+├─────────────────┤ ← 076Dh × 10h = 07AD0h
+│   .DATA         │  ← DS punterà qui dopo MOV DS, AX
+│  n1, n2, msg... │
+├─────────────────┤
+│   .STACK        │
+└─────────────────┘
+</code></pre>
+<p>Ecco perché la prima cosa che fa <code>main</code> è caricare <code>076Dh</code> in DS: così il processore sa dove trovare le variabili!</p>
+<style>
+        .katex .frac-line {
+            border-bottom: 0.04em solid currentColor !important;
+            margin: 0.04em 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            transform: none !important;
+            translate: none !important;
+            width: 100% !important;
+            height: 0.04em !important;
+            vertical-align: middle !important;
+            display: block !important;
+            box-sizing: border-box !important;
+        }
+        .katex .mfrac {
+            vertical-align: middle !important;
+            display: inline-block !important;
+            text-align: center !important;
+            position: relative !important;
+        }
+        .katex .mfrac > .vlist-t {
+            display: inline-table !important;
+            vertical-align: middle !important;
+        }
+        .katex .mfrac .vlist-r {
+            display: table-row !important;
+        }
+        .katex .mfrac .vlist {
+            display: table-cell !important;
+            vertical-align: middle !important;
+            text-align: center !important;
+        }
+        .katex-display {
+            overflow: visible !important;
+            padding: 0.25em 0.35em 0.75em 0.9em !important;
+            margin: 1em 0 !important;
+            text-align: center !important;
+        }
+        .katex-display > .katex {
+            overflow: visible !important;
+        }
+        .katex-display > .katex > .katex-html {
+            overflow: visible !important;
+        }
+        .katex .sqrt-line {
+            border-top: 0.04em solid currentColor !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+            top: 0 !important;
+            transform: none !important;
+            vertical-align: top !important;
+        }
+        .katex .base {
+            display: inline-block !important;
+            vertical-align: baseline !important;
+            position: relative !important;
+        }
+        .katex .integral {
+            margin-left: 0.04em !important;
+            margin-right: 0.04em !important;
+        }
+        .katex * {
+            transform: none !important;
+            translate: none !important;
+            overflow: visible !important;
+        }
+    </style>
+</body>
+</html>
