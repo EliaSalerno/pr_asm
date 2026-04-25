@@ -51,7 +51,3 @@ end main
 3. **Input da tastiera**: Legge una stringa di caratteri dalla tastiera.
 4. **Conversione**: Converte i caratteri ASCII in un numero intero.
 5. **Terminazione**: Termina il programma correttamente.
-
-Assicurati di eseguire il codice in un ambiente DOS compatibile o in un emulatore adatto per assembly a 16 bit.
-Questo messaggio è stato generato da Nova - Scarica gratis:
-https://novaapp.onelink.me/PBYt/cyi2tjkv
