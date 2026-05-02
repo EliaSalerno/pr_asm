@@ -1,0 +1,5 @@
+utilizzando l'esercizio di esempio:
+
+ 1 - realizzare un algoritmo in assembly che chieda una parola in input di massimo 20 caratteri e stampi in output se sono stati inseriti più o meno di 12 caratteri
+ 2 - realizzare un algoritmo in assembly che chieda un numero in input (letto come stringa) e senza effettuare la conversione comprenda se il numero è maggiore o minore di cento
+
