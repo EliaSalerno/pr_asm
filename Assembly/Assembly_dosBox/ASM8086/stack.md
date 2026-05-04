@@ -40,3 +40,55 @@ In sintesi, senza una corretta gestione dello stack, le procedure non funzionere
 [9] [https://it.emcelettronica.com](https://it.emcelettronica.com/tecniche-di-stima-e-riduzione-dello-stack-nei-sistemi-embedded#:~:text=La%20memoria%20comunemente%20denominata%20stack%20%C3%A8%20una,salvati%20al%20momento%20della%20invocazione%20delle%20subroutines.)
 [10] [https://cfpt.altervista.org](http://cfpt.altervista.org/es/3dinf/es2%20/IL%20LINGUAGGIO%20ASSEMBLY.pdf)
 [11] [https://www.ingmonti.it](https://www.ingmonti.it/libri/Parte2/11%20Stack.pdf)
+
+Ecco un esempio classico in assembly 8086: una procedura che somma due numeri passati tramite lo stack. Questo scenario mostra come salvare il contesto, accedere ai parametri e pulire lo stack.
+
+.model small
+.stack 100h
+.code
+
+main PROC
+    ; 1. Prepariamo i parametri
+    mov ax, 10      ; Primo numero
+    push ax         ; Lo mettiamo sullo stack
+    mov ax, 20      ; Secondo numero
+    push ax         ; Lo mettiamo sullo stack
+
+    ; 2. Chiamiamo la funzione (salva l'IP sullo stack)
+    call SommaNumeri
+
+    ; 3. Pulizia dello stack (abbiamo pushato 2 word da 2 byte = 4 byte)
+    add sp, 4       
+
+    ; Il risultato è in AX (30)
+    mov ah, 4Ch
+    int 21h
+main ENDP
+
+; --- PROCEDURA SOMMA ---
+SommaNumeri PROC
+    push bp         ; Salva il vecchio Base Pointer
+    mov bp, sp      ; Imposta BP per puntare alla cima attuale dello stack
+
+    ; Stato dello stack ora:
+    ; [BP+6] -> Primo parametro (10)
+    ; [BP+4] -> Secondo parametro (20)
+    ; [BP+2] -> Indirizzo di ritorno (messo dalla CALL)
+    ; [BP]   -> Vecchio BP salvato
+
+    mov ax, [bp+6]  ; Prende il 10
+    add ax, [bp+4]  ; Somma il 20 (Risultato 30 in AX)
+
+    pop bp          ; Ripristina il vecchio Base Pointer
+    ret             ; Torna al main
+SommaNumeri ENDP
+
+END main
+
+## Cosa succede in questo esempio:
+
+   1. PUSH: Inseriamo i dati 10 e 20. Lo Stack Pointer (SP) scende di 2 byte per ogni push.
+   2. BP (Base Pointer): È fondamentale dentro la procedura. Poiché SP potrebbe cambiare se facciamo altri calcoli, usiamo BP come "ancora" fissa per leggere i parametri con gli offset (+4, +6).
+   3. Indirizzo di Ritorno: La CALL mette automaticamente l'indirizzo dell'istruzione successiva sullo stack. Se sbagliamo a manipolare lo stack e non facciamo il POP BP correttamente, la RET leggerà il dato sbagliato e il programma crasha.
+   4. Pulizia finale: Dopo la chiamata, ADD SP, 4 riporta lo stack alla posizione originale, "dimenticando" i parametri passati.
+
