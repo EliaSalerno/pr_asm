@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\bin\Debug\net8.0-windows\ContaCarattereTest.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\bin\Debug\net8.0-windows\ContaCarattereTest.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\bin\Debug\net8.0-windows\ContaCarattereTest.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\bin\Debug\net8.0-windows\ContaCarattereTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\bin\Debug\net8.0-windows\ContaCarattereTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\refint\ContaCarattereTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ContaCarattereTest.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio06_conta_carattere\obj\Debug\net8.0-windows\ref\ContaCarattereTest.dll

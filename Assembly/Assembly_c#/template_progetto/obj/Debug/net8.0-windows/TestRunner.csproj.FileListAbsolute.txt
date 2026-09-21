@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\bin\Debug\net8.0-windows\TestRunner.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\bin\Debug\net8.0-windows\TestRunner.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\bin\Debug\net8.0-windows\TestRunner.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\bin\Debug\net8.0-windows\TestRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\bin\Debug\net8.0-windows\TestRunner.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\refint\TestRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\TestRunner.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\template_progetto\obj\Debug\net8.0-windows\ref\TestRunner.dll

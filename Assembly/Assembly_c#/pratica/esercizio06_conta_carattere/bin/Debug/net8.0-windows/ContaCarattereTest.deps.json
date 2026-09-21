@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ContaCarattereTest/1.0.0": {
+        "runtime": {
+          "ContaCarattereTest.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ContaCarattereTest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

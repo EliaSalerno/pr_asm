@@ -1,5 +1,4 @@
 using System.Runtime.InteropServices;
-using System.Drawing; // Nota: richiede il riferimento a System.Drawing.Common se net8.0-windows
 
 const string DllName = "colori.dll";
 

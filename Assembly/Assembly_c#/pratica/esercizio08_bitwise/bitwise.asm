@@ -28,18 +28,11 @@ IsolaBit PROC
     mov ebp, esp
     
     mov eax, [ebp + 8]  ; Carica il numero
-    mov ecx, [ebp + 12] ; Carica la posizione
-    
-    chr eax, cl         ; Scarta i bit a destra (sposta il bit desiderato in posizione 0)
-    ; Attenzione: SHR non va bene se vogliamo solo isolare senza spostare.
-    ; Usiamo uno shift e poi un AND.
-    
-    mov eax, [ebp + 8]
-    mov ecx, [ebp + 12]
-    
+    mov ecx, [ebp + 12] ; Carica la posizione n (0-31)
+
     ; Creiamo una maschera dinamica spostando l'1 a sinistra
     mov edx, 1
-    shl edx, cl         ; EDX ora ha solo l' n-esimo bit acceso
+    shl edx, cl         ; EDX = 1 << n (solo l' n-esimo bit acceso)
     
     and eax, edx        ; EAX ora ha il valore del bit o zero
     

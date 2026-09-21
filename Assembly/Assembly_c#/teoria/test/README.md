@@ -42,11 +42,11 @@ Questa cartella contiene un test di verifica per ciascuna delle 6 lezioni del co
 **Sezione 3: Memoria e Indirizzamento**
 9. `0x1000: 0xEF`, `0x1001: 0xBE`, `0x1002: 0xAD`, `0x1003: 0xDE`.
 10. Immediato, Registro, Diretto a memoria, Base + Indice * Scala.
-11. `mov eax, x` carica il valore; `mov eax, [x]` in MASM è spesso equivalente per variabili nominali, ma concettualmente `[x]` indica la dereferenziazione dell'indirizzo di x.
+11. In MASM `mov eax, x` e `mov eax, [x]` sono **equivalenti**: entrambe caricano il **valore** contenuto in x (MASM sottintende le parentesi quadre sulle variabili "nominale" di .DATA). Per ottenere l'**indirizzo** si usa `lea eax, x` (oppure `mov eax, OFFSET x`).
 
 **Sezione 4: Pratica e Conversioni**
 12. 42 = **101010b** = **2Ah**. DWORD = **4 byte**. WORD = **16 bit**.
-13. Ordine: **3** (Invio EAX), **4** (Incremento EIP), **1** (Sottrazione ESP), **2** (Segnale scrittura). *Nota: Tecnicamente l'ordine è: 1. Dec ESP, 2. Invio EAX, 3. Segnale scrittura, 4. Inc EIP.*
+13. Ordine corretto: **3** (Sottrazione ESP), **1** (Invio EAX), **4** (Segnale scrittura), **2** (Incremento EIP). *Nota: tecnicamente la sequenza è Dec ESP → Invio EAX → MEM_WRITE → Inc EIP.*
 
 **Sezione 5: Bonus**
 14. $2^{36}$ byte = **64 GB**.
@@ -63,7 +63,7 @@ Questa cartella contiene un test di verifica per ciascuna delle 6 lezioni del co
 1-c, 2-c, 3-d, 4-c, 5-b, 6-c, 7-b, 8-d, 9-b, 10-b, 11-c, 12-c
 
 ### Test 3 — Memoria
-1-c, 2-b, 3-d, 4-c, 5-b, 6-b, 7-b, 8-d, 9-c, 10-a
+1-c, 2-b, 3-d, 4-c, 5-b, 6-b, 7-c, 8-d, 9-c, 10-a
 
 ### Test 4 — Istruzioni
 1-c, 2-b, 3-c, 4-b, 5-b, 6-b, 7-c, 8-c, 9-c, 10-c, 11-c, 12-b

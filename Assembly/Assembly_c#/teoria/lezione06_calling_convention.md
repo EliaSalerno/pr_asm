@@ -35,7 +35,7 @@ CHIAMANTE (C#)                          FUNZIONE ASM
 ─────────────────────────────           ──────────────────────────────
   push param2                         ┐
   push param1                         │ parametri sullo stack
-  call _NomeFunzione ────────────────→│
+  call NomeFunzione ────────────────→│
                                        │ push ebp          ← prologo
                                        │ mov ebp, esp
                                        │ sub esp, 4        ← var locali
@@ -73,8 +73,8 @@ Dopo il prologo (`push ebp; mov ebp, esp`), i parametri si trovano a offset **fi
 
 Per rendere una funzione Assembly chiamabile dal C#, dobbiamo:
 1. Dichiararla con `PUBLIC` in MASM
-2. Usare il prefisso `_` (richiesto dalla cdecl su Windows a 32 bit)
-3. Compilare come DLL
+2. Usare `.MODEL FLAT, C`: è MASM che aggiunge da solo il prefisso `_` al simbolo nell'oggetto
+3. Compilare come DLL e, nel comando `link`, esportare il nome **senza underscore** (`/EXPORT:NomeFunzione`)
 
 ```asm
 .486
@@ -90,6 +90,14 @@ NomeFunzione ENDP
 
 END
 ```
+
+> ⚠️ **Errore classico (LNK2001):** con `.MODEL FLAT, C` MASM crea già il simbolo `_NomeFunzione` nell'oggetto.
+> Il linker x86 a sua volta aggiunge un `_` a ogni nome passato a `/EXPORT`: se scriviamo
+> `/EXPORT:_NomeFunzione` il linker cerca `__NomeFunzione` (che non esiste) ed esce con errore,
+> producendo una DLL vuota (0 byte). Nel comando `link` si scrive quindi **`/EXPORT:NomeFunzione`** (senza `_`).
+>
+> Nota: le DLL di questo corso si linkano con `/DLL /NOENTRY` (nessun `DllMain` necessario) e non
+> servono librerie della CRT.
 
 ---
 
@@ -172,7 +180,7 @@ Console.WriteLine($"10 + 32 = {risultato}");
 | Valore di ritorno | Sempre in EAX (intero 32-bit) |
 | Registri da preservare | EBX, ESI, EDI (il chiamato li deve ripristinare) |
 | Registri "liberi" | EAX, ECX, EDX (il chiamato può modificarli) |
-| Nome funzione | Prefisso `_` per compatibilità cdecl su Win32 |
+| Export nel `link` | Nome SENZA underscore (il `_` lo aggiunge già MASM al simbolo) |
 | DllImport | `CallingConvention.Cdecl` |
 
 ---
@@ -187,4 +195,4 @@ Console.WriteLine($"10 + 32 = {risultato}");
 
 4. Una funzione Assembly che calcola `a * b + c` riceve 3 parametri. A quali offset da EBP li trova?
 
-5. Se la DLL si chiama `calcoli.dll` e la funzione si chiama `_Massimo`, scrivi la dichiarazione `[DllImport]` completa in C#.
+5. Se la DLL si chiama `calcoli.dll` e la funzione si chiama `Massimo`, scrivi la dichiarazione `[DllImport]` completa in C#.

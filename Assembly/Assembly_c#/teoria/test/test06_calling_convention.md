@@ -61,12 +61,12 @@
 
 ---
 
-**7.** Perché i nomi delle funzioni Assembly esportate in Win32 a 32 bit devono avere il **prefisso `_`** (underscore)?
+**7.** Nel nostro ambiente (MASM + link + P/Invoke), cosa bisogna scrivere nel comando `link /EXPORT` per esportare la funzione `NomeFunzione` dichiarata con `.MODEL FLAT, C`?
 
-- a) È un requisito del linker MASM
-- b) È la convenzione cdecl su Windows a 32 bit che aggiunge questo prefisso ai simboli C
-- c) Il prefisso `_` indica che la funzione è privata
-- d) Senza `_` la funzione non compila
+- a) Il nome con il prefisso `_`: `/EXPORT:_NomeFunzione`
+- b) Il nome **senza** underscore: `/EXPORT:NomeFunzione` (MASM aggiunge già da solo il `_` al simbolo)
+- c) Il prefisso `_` è richiesto solo in 64 bit
+- d) Il linker non usa nomi, ma solo il numero di riga
 
 ---
 
@@ -117,7 +117,7 @@
 
 ## Parte B — Scrittura di codice
 
-**13.** Scrivi lo **scheletro completo** di una funzione Assembly `_Prodotto` che:
+**13.** Scrivi lo **scheletro completo** di una funzione Assembly `Prodotto` che:
 - Riceve due parametri interi `a` e `b`
 - Calcola `a * b`
 - Ritorna il risultato in EAX
@@ -128,9 +128,9 @@
 .MODEL FLAT, C
 .CODE
 
-PUBLIC _Prodotto
+PUBLIC Prodotto
 
-_Prodotto PROC
+Prodotto PROC
     ; Scrivi il codice completo:
     ; Prologo
 
@@ -141,14 +141,14 @@ _Prodotto PROC
     ; Epilogo
 
 
-_Prodotto ENDP
+Prodotto ENDP
 
 END
 ```
 
 ---
 
-**14.** Scrivi la **dichiarazione C# completa** per importare la funzione Assembly `_Massimo` dalla DLL `utilita.dll`. La funzione prende due `int` e restituisce un `int`.
+**14.** Scrivi la **dichiarazione C# completa** per importare la funzione Assembly `Massimo` dalla DLL `utilita.dll`. La funzione prende due `int` e restituisce un `int`.
 
 ```csharp
 // Scrivi qui la dichiarazione:
@@ -164,10 +164,10 @@ END
 .MODEL FLAT, C
 .CODE
 
-PUBLIC _Raddoppia
+PUBLIC Raddoppia
 
 ; int Raddoppia(int x) → ritorna x * 2
-_Raddoppia PROC
+Raddoppia PROC
     push ebp
     mov  ebp, esp
 
@@ -176,7 +176,7 @@ _Raddoppia PROC
 
     pop  ebp
     ret
-_Raddoppia ENDP
+Raddoppia ENDP
 
 END
 ```

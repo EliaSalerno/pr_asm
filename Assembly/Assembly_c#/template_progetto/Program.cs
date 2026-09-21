@@ -10,7 +10,7 @@ Console.WriteLine("╚═══════════════════�
 
 // --- DICHIARAZIONE FUNZIONE ---
 // Importiamo la funzione definita in Assembly. 
-// Ricorda: in Assembly la funzione deve essere esportata (es. EXPORT:_MiaFunzione)
+// Ricorda: il /EXPORT nel compila.bat usa il nome SENZA underscore (/EXPORT:MiaFunzione)
 [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
 static extern int MiaFunzione(int a, int b);
 

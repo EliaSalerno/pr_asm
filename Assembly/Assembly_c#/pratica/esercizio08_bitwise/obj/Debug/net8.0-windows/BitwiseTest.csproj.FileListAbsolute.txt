@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\bin\Debug\net8.0-windows\BitwiseTest.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\bin\Debug\net8.0-windows\BitwiseTest.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\bin\Debug\net8.0-windows\BitwiseTest.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\bin\Debug\net8.0-windows\BitwiseTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\bin\Debug\net8.0-windows\BitwiseTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\refint\BitwiseTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\BitwiseTest.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio08_bitwise\obj\Debug\net8.0-windows\ref\BitwiseTest.dll

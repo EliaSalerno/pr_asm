@@ -14,6 +14,8 @@ function initializeNav() {
     // Teoria
     const teoriaEntries = Object.keys(repoData.teoria).sort();
     teoriaEntries.forEach(key => {
+        // La "Guida Generale" è già nel menu Generale (nav-overview): evita il duplicato
+        if (key === 'overview') return;
         const entry = repoData.teoria[key];
         const li = document.createElement('li');
         li.className = 'nav-item';

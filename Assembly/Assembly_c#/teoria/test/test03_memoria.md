@@ -52,26 +52,21 @@
 
 ---
 
-**6.** Quale delle seguenti istruzioni carica il **valore** della variabile `x` in EAX?
+**6.** In MASM, `mov eax, x` e `mov eax, [x]` (con `x` dichiarata in `.DATA`) producono:
 
-```asm
-.DATA
-    x DWORD 42
-```
-
-- a) `mov eax, x`
-- b) `mov eax, [x]`
-- c) `mov eax, &x`
-- d) `lea eax, x`
+- a) Due istruzioni diverse: `mov eax, x` carica l'indirizzo, `mov eax, [x]` il valore
+- b) La stessa identica istruzione: entrambe caricano il **valore** contenuto in `x`
+- c) Un errore di sintassi
+- d) Due istruzioni diverse: `mov eax, x` carica il valore, `mov eax, [x]` l'indirizzo
 
 ---
 
-**7.** Cosa carica nel registro EAX l'istruzione `mov eax, x` (senza parentesi quadre)?
+**7.** Quale istruzione Assembly carica in EAX l'**indirizzo** di memoria della variabile `x` (non il suo valore)?
 
-- a) Il valore contenuto in `x`
-- b) L'indirizzo di memoria della variabile `x`
-- c) Il tipo di dato di `x`
-- d) Genera un errore di sintassi
+- a) `mov eax, x`
+- b) `mov eax, [x]`
+- c) `lea eax, x`
+- d) `mov eax, &x`
 
 ---
 
@@ -165,14 +160,7 @@ Completa la tabella indicando il byte presente a ciascun indirizzo (litte-endian
 
 ---
 
-**16.** *(3 punti)* Un tuo collega scrive:
-```asm
-.DATA
-    x DWORD 10
-.CODE
-    mov eax, x    ; vuole caricare 10 in EAX
-```
-Spiega qual è l'errore e come correggerlo.
+**16.** *(3 punti)* Un tuo collega afferma: "In MASM, `mov eax, x` carica l'INDIRIZZO della variabile, mentre `mov eax, [x]` carica il valore." Spiega perché questa frase è **sbagliata** in MASM e scrivi l'istruzione corretta per caricare in EAX l'indirizzo della variabile `x`.
 
 > *Risposta:*
 >

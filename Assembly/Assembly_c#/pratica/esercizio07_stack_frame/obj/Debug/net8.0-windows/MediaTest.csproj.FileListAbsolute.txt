@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\bin\Debug\net8.0-windows\MediaTest.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\bin\Debug\net8.0-windows\MediaTest.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\bin\Debug\net8.0-windows\MediaTest.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\bin\Debug\net8.0-windows\MediaTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\bin\Debug\net8.0-windows\MediaTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\refint\MediaTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\MediaTest.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio07_stack_frame\obj\Debug\net8.0-windows\ref\MediaTest.dll

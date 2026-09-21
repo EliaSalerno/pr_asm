@@ -1,4 +1,5 @@
 @echo off
+setlocal
 set FILENAME=conta
 set DLL_NAME=%FILENAME%.dll
 set OBJ_NAME=%FILENAME%.obj
@@ -8,28 +9,29 @@ echo ============================================================
 echo   COMPILAZIONE ESERCIZIO 06: CONTA CARATTERE
 echo ============================================================
 
+echo [1/3] Assemblaggio di %ASM_NAME%...
 ml /c /coff %ASM_NAME%
 if %errorlevel% neq 0 (
     echo [ERRORE] Assemblaggio fallito.
     pause & exit /b 1
 )
 
-REM Esportiamo la funzione _ContaCarattere
-link /DLL /SUBSYSTEM:WINDOWS /EXPORT:_ContaCarattere /OUT:%DLL_NAME% %OBJ_NAME%
+echo [2/3] Linking della DLL...
+REM Esportazione SENZA underscore: con .MODEL FLAT, C, MASM aggiunge
+REM gia' il '_' al simbolo nell'oggetto. /NOENTRY: nessuna DllMain.
+link /DLL /SUBSYSTEM:WINDOWS /NOENTRY /EXPORT:ContaCarattere /OUT:%DLL_NAME% %OBJ_NAME%
 if %errorlevel% neq 0 (
     echo [ERRORE] Linking fallito.
     pause & exit /b 1
 )
 
-echo.
-echo [OK] DLL generata con successo.
-echo [OK] Copia della DLL nella cartella di output del runner...
-
-REM Copia nelle cartelle standard di build di .NET
-if not exist bin\x86\Debug\net8.0-windows\ mkdir bin\x86\Debug\net8.0-windows\
-copy /Y %DLL_NAME% bin\x86\Debug\net8.0-windows\
+echo [3/3] Copia della DLL nella cartella di build del progetto .NET...
+REM La cartella reale di output di 'dotnet run' e' bin\Debug\net8.0-windows\
+REM (NON bin\x86\...: quella non viene mai generata dal progetto).
+if not exist bin\Debug\net8.0-windows\ mkdir bin\Debug\net8.0-windows\
+copy /Y %DLL_NAME% bin\Debug\net8.0-windows\ >nul
 
 echo.
-echo Fatto! Ora puoi avviare il progetto.
+echo Fatto! Avvia il progetto con:  dotnet run
 echo ============================================================
 pause

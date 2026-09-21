@@ -101,10 +101,13 @@ Si usa il nome di una variabile (dichiarata in `.DATA`) come operando:
 .CODE
     mov eax, [x]       ; EAX ← contenuto della variabile x (= 10)
     mov [x], ebx       ; scrive in x il valore di EBX
-    mov eax, x         ; ERRORE COMUNE: senza [] carica l'INDIRIZZO, non il valore!
+    mov eax, x         ; in MASM è EQUIVALENTE a mov eax, [x] (stessa istruzione!)
+    lea eax, x         ; per ottenere l'INDIRIZZO di x (non il valore!)
 ```
 
-> `[x]` significa "vai all'indirizzo di x e leggi cosa c'è lì". Le parentesi quadre sono l'operatore di **dereferenziazione**.
+> ⚠️ **Attenzione (differenza rispetto al C!)** In MASM `mov eax, x` e `mov eax, [x]` producono **la stessa identica istruzione**: entrambe caricano il **valore** contenuto in x. Le parentesi quadre indicano la **dereferenziazione**, ma su una variabile "nominale" (dichiarata in `.DATA`) MASM le sottintende. Per caricare l'**indirizzo** di una variabile si usa `lea eax, x` (Load Effective Address) oppure `mov eax, OFFSET x`.
+>
+> La cosa cambia con i **registri**: `mov eax, ebx` copia il valore di EBX, mentre `mov eax, [ebx]` legge dalla memoria all'indirizzo contenuto in EBX.
 
 ### 3.4.4 Indirizzamento indiretto tramite registro
 
@@ -185,6 +188,6 @@ mov eax, 0x1000     → EAX = 0x00001000    (indirizzo!)
 
 3. Con il valore `0xAABBCCDD` salvato all'indirizzo `0x2000`, scrivi in ordine cosa trovi agli indirizzi `0x2000`, `0x2001`, `0x2002`, `0x2003` (ricorda: little-endian!)
 
-4. Qual è la differenza tra `mov eax, x` e `mov eax, [x]`?
+4. Qual è la differenza tra `mov eax, x` e `lea eax, x`?
 
 5. Scrivi un frammento Assembly che legge il terzo elemento (indice 2) di un array di DWORD puntato da ESI e lo carica in EAX.

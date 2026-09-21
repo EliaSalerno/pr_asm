@@ -36,8 +36,12 @@ Media PROC
     ; ... qui potremmo fare altre cose ...
     
     mov eax, [ebp - 4]  ; Recupera dalla variabile locale
-    shr eax, 1          ; Dividi per 2 (Shift Right)
+    sar eax, 1          ; Dividi per 2 (Shift Arithmetic Right, mantiene il segno)
 ```
+
+> Nota: si usa `sar` (non `shr`) perché la somma dei due parametri può avere il bit più
+> significativo acceso (numero negativo se i valori sono grandi/sinati). `shr` sposterebbe
+> via il bit di segno, come fa correttamente l'esercizio pratico `esercizio07`.
 
 ### Passo 3: L'Epilogo (Fondamentale!)
 ```asm

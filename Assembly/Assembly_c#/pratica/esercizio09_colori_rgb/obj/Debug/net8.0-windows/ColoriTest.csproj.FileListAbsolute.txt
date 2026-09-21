@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\bin\Debug\net8.0-windows\ColoriTest.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\bin\Debug\net8.0-windows\ColoriTest.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\bin\Debug\net8.0-windows\ColoriTest.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\bin\Debug\net8.0-windows\ColoriTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\bin\Debug\net8.0-windows\ColoriTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\refint\ColoriTest.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ColoriTest.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\pratica\esercizio09_colori_rgb\obj\Debug\net8.0-windows\ref\ColoriTest.dll

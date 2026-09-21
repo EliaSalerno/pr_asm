@@ -140,7 +140,7 @@ EFLAGS = 00000206  (ZF=0, SF=0, CF=0, OF=0)
 
 ## 2.7 Esercizi di consolidamento
 
-1. Dopo `mov eax, 0x12345678`, quals è il valore di AX? Di AH? Di AL?
+1. Dopo `mov eax, 0x12345678`, qual è il valore di AX? Di AH? Di AL?
 2. Se `AH = 0xAB` e `AL = 0xCD`, qual è il valore di EAX in esadecimale?
 3. In quale registro troviamo il valore di ritorno di una funzione Assembly?
 4. Cosa succede a EIP quando la CPU esegue un'istruzione `jmp`?

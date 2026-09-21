@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zpvA/2GXqRc=",
+  "dgSpecHash": "hXVlY1AE6ds=",
   "success": true,
-  "projectFilePath": "C:\\Users\\elias\\Desktop\\Assembly\\csharp_runner\\AssemblyRunner.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\elias\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.16\\microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\elias\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.16\\microsoft.windowsdesktop.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\elias\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.16\\microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512",
-    "C:\\Users\\elias\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\8.0.16\\microsoft.netcore.app.host.win-x86.8.0.16.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\elias\\Desktop\\progetti_git\\pr_asm\\Assembly\\Assembly_c#\\csharp_runner\\AssemblyRunner.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,15 @@
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\bin\Debug\net8.0-windows\AssemblyRunner.exe
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\bin\Debug\net8.0-windows\AssemblyRunner.deps.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\bin\Debug\net8.0-windows\AssemblyRunner.runtimeconfig.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\bin\Debug\net8.0-windows\AssemblyRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\bin\Debug\net8.0-windows\AssemblyRunner.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.AssemblyInfoInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.AssemblyInfo.cs
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.sourcelink.json
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\refint\AssemblyRunner.dll
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.pdb
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\AssemblyRunner.genruntimeconfig.cache
+C:\Users\elias\Desktop\progetti_git\pr_asm\Assembly\Assembly_c#\csharp_runner\obj\Debug\net8.0-windows\ref\AssemblyRunner.dll

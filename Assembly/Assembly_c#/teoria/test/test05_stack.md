@@ -117,25 +117,27 @@
 
 ## Parte B — Disegno e analisi dello stack
 
-**13.** Supponiamo di chiamare `somma(3, 7)`. Lo stack prima della chiamata ha ESP = `0x1020`.
+**13.** Supponiamo di chiamare `somma(3, 7)`. Lo stack **prima della chiamata** (prima che il chiamante pushi i parametri) ha ESP = `0x1024`.
 
-Completa il diagramma indicando cosa si trova a ciascun indirizzo DOPO il prologo della funzione (`push ebp; mov ebp, esp`), assumendo che il chiamante abbia pushato i parametri e poi eseguito `call`:
+Completa il diagramma indicando cosa si trova a ciascun indirizzo DOPO il prologo della funzione (`push ebp; mov ebp, esp`), assumendo che il chiamante abbia pushato i parametri (ordine cdecl: prima `7`, poi `3`) e poi eseguito `call`:
 
 ```
 Indirizzo  | Contenuto          | Descrizione
 -----------|--------------------|------------------------------------------
-0x1010     | ___                | ___ (EBP-4 della funzione, allocato dopo)
+0x1010     | ___                | variabile locale (EBP-4, allocata dopo)
            |                    |
-0x1014     | ← EBP punta qui   | ___
+0x1014     | ← EBP punta qui   | EBP del chiamante (salvato da push ebp)
            |                    |
-0x1018     | ___                | ___
+0x1018     | ___                | indirizzo di ritorno (scritto da CALL)
            |                    |
-0x101C     | ___                | ___
+0x101C     | ___                | 1° parametro (a = 3)
            |                    |
-0x1020     | (frame chiamante)  |
+0x1020     | ___                | 2° parametro (b = 7)
+           |                    |
+0x1024     | (frame chiamante)  |
 ```
 
-*(Suggerimento: pensa all'ordine — parametri, indirizzo di ritorno, EBP salvato)*
+*(Suggerimento: pensa all'ordine — parametri (8 byte), indirizzo di ritorno (4 byte), EBP salvato (4 byte))*
 
 ---
 

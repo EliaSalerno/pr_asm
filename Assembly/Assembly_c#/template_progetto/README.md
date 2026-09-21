@@ -12,7 +12,7 @@ Questo template permette di testare rapidamente funzioni scritte in Assembly x86
 1. Copia l'intera cartella `template_progetto` e nominala come il tuo esercizio (es. `esercizio_potenza`).
 2. Apri il file `.asm` e scrivi la tua logica.
 3. Se cambi il nome della funzione in Assembly, ricordati di aggiornare:
-   - Il comando `/EXPORT:_NomeFunzione` nel file `compila.bat`.
+   - Il comando `/EXPORT:NomeFunzione` (**senza underscore**) nel file `compila.bat`.
    - La riga `[DllImport(...)]` nel file `Program.cs`.
 4. Apri il **"Developer Command Prompt for VS"** (o "x86 Native Tools").
 5. Spostati nella cartella ed esegui `compila.bat`.
@@ -21,4 +21,4 @@ Questo template permette di testare rapidamente funzioni scritte in Assembly x86
 ## Note Tecniche
 - **Sintassi Intel**: Usiamo MASM (Microsoft Macro Assembler).
 - **Convenzione Cdecl**: I parametri vengono passati sullo stack e lo stack viene pulito dal chiamante (C# lo fa automaticamente con `CallingConvention.Cdecl`).
-- **Nomi Funzioni**: Per esportare una funzione `MiaFunzione` in x86, il linker si aspetta spesso un underscore davanti (`_MiaFunzione`).
+- **Nomi Funzioni**: Con `.MODEL FLAT, C` MASM aggiunge da solo il prefisso `_` al simbolo (`_MiaFunzione`) nell'oggetto; nel `/EXPORT` di `link` si scrive quindi il nome **senza** underscore (`/EXPORT:MiaFunzione`).
